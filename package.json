@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "axios": "^1.13.2",
+    "discord-html-transcripts": "^3.2.0",
+    "discord.js": "^14.24.2",
+    "mongodb": "^7.0.0",
+    "mongoose": "^8.19.3"
+  }
+}
