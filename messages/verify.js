@@ -58,11 +58,6 @@ module.exports = {
                         .setDivider(true)
                         .setSpacing(SeparatorSpacingSize.Small)
                 )
-                .addSeparatorComponents(
-                    new SeparatorBuilder()
-                        .setDivider(true)
-                        .setSpacing(SeparatorSpacingSize.Small)
-                )
                 .addMediaGalleryComponents(
                     new MediaGalleryBuilder().addItems(
                         new MediaGalleryItemBuilder().setURL(
