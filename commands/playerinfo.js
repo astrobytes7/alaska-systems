@@ -25,7 +25,7 @@ module.exports = {
 
             const res = await axios.get("https://api.policeroleplay.community/v2/server?Players=true&Vehicles=true", {
                 headers: {
-                    "server-key": process.env.ERLC_API_TOKEN
+                    "server-key": "eGCMCiQBzvcdFpmkGfFg-QwGnOWzbJGJsydkWLjcHzSNZUDgwvoJJJewHOGVx"
                 }
             });
 

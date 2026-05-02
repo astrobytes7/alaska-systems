@@ -8,7 +8,7 @@ const axios = require("axios");
 
 module.exports = {
     data: new SlashCommandBuilder()
-        .setName("erlc-info")
+        .setName("erlcinfo")
         .setDescription("Show ER:LC server info"),
 
     async execute(interaction) {
@@ -16,7 +16,7 @@ module.exports = {
 
         try {
             const headers = {
-                "server-key": process.env.ERLC_API_TOKEN
+                "server-key": "eGCMCiQBzvcdFpmkGfFg-QwGnOWzbJGJsydkWLjcHzSNZUDgwvoJJJewHOGVx"
             };
 
             const { data: server } = await axios.get(
