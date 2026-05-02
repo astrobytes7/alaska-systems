@@ -35,7 +35,7 @@ async function handleAiResponse(message, client) {
 
     try {
         const response = await grok.chat.completions.create({
-            model: "grok-beta",
+            model: "grok-2",
             messages: [
                 {
                     role: "system",
