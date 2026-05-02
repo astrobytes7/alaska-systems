@@ -61,6 +61,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setColor('#242429')
+                .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194')
                 .setAuthor({
                     name: interaction.user.username,
                     iconURL: interaction.user.displayAvatarURL()
