@@ -134,10 +134,17 @@ module.exports = {
       console.error('Error closing ticket:', error);
 
       try {
-        await interaction.reply({
-          content: 'Failed to close the ticket.',
-          ephemeral: true,
-        });
+        if (interaction.replied || interaction.deferred) {
+          await interaction.followUp({
+            content: 'Failed to close the ticket.',
+            ephemeral: true,
+          });
+        } else {
+          await interaction.reply({
+            content: 'Failed to close the ticket.',
+            ephemeral: true,
+          });
+        }
       } catch { }
     }
   },
