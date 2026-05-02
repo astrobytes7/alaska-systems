@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-const ERLC_SERVER_TOKEN = ""; // ERLC API KEY
+const ERLC_SERVER_TOKEN = process.env.ERLC_API_TOKEN; // ERLC API KEY
 const API_BASE = "https://api.policeroleplay.community/v1/server";
 
 async function fetchFromAPI(endpoint = "") {

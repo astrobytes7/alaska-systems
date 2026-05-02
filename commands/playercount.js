@@ -16,7 +16,7 @@ module.exports = {
 
         try {
             const headers = {
-                "server-key": ""
+                "server-key": process.env.ERLC_API_TOKEN
             };
 
             const [serverRes, queueRes] = await Promise.all([

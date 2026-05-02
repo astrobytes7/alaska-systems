@@ -42,7 +42,7 @@ module.exports = {
                 },
                 {
                     headers: {
-                        "server-key": "",
+                        "server-key": process.env.ERLC_API_TOKEN,
                         "Content-Type": "application/json"
                     }
                 }
