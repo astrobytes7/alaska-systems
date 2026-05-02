@@ -1,13 +1,15 @@
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 const DiscordTranscripts = require('discord-html-transcripts');
 const Ticket = require('../models/ticketSchema');
+const fs = require('fs');
+const path = require('path');
 
 module.exports = {
   customID: 'closeTicket',
 
   async execute(interaction) {
-    const transcriptChannelId = ''; // channel id
-    const requiredRoleId = ''; // role id
+    const transcriptChannelId = '1500199554786525254'; // channel id
+    const requiredRoleId = '1497749785812140086'; // role id
 
     if (!interaction.guild.roles.cache.get(requiredRoleId)) {
       return interaction.reply({
@@ -55,8 +57,16 @@ module.exports = {
         saveImages: false,
       });
 
+      const fileName = `${ticket.username}-${ticket.ticketId}.html`;
+      const filePath = path.join(__dirname, '../public/transcripts', fileName);
+      
+      // Save the transcript to the local public folder
+      fs.writeFileSync(filePath, transcript);
+
+      const onlineTranscriptURL = `https://alaska.noteshan.xyz/transcripts/${fileName}`;
+
       const transcriptFile = new AttachmentBuilder(transcript, {
-        name: `${ticket.username}-${ticket.ticketId}.html`,
+        name: fileName,
       });
 
       const logEmbed = new EmbedBuilder()
@@ -65,6 +75,7 @@ module.exports = {
         .addFields(
           { name: 'Closed By', value: `<@${closer.id}>`, inline: true },
           { name: 'Reason', value: closureReason, inline: true },
+          { name: 'Online Transcript', value: `[View Transcript](${onlineTranscriptURL})`, inline: false },
         )
         .setFooter({
           text: `User ID: ${ticket.userId} | Ticket ID: ${ticket.ticketId}`,
@@ -78,6 +89,7 @@ module.exports = {
         .addFields(
           { name: 'Closed By', value: `<@${closer.id}>`, inline: true },
           { name: 'Reason', value: closureReason, inline: true },
+          { name: 'Online Transcript', value: `[View Transcript](${onlineTranscriptURL})`, inline: false },
         )
         .setFooter({ text: `Ticket ID: ${ticket.ticketId}` })
         .setImage('https://media.discordapp.net/attachments/1433261489879519302/1433261520019783882/2.png?ex=6913de4f&is=69128ccf&hm=a0d23fe0915dfaedff9c09793a183a97db72c85569dd2f261b9f7ecd56832044&=&format=webp&quality=lossless&width=2576&height=120')
@@ -96,13 +108,13 @@ module.exports = {
           interaction.followUp({
             content: "Couldn't DM the user — their DMs are disabled.",
             ephemeral: true,
-          }).catch(() => {});
+          }).catch(() => { });
         });
       } else {
         interaction.followUp({
           content: 'Unable to locate the user to DM.',
           ephemeral: true,
-        }).catch(() => {});
+        }).catch(() => { });
       }
 
       setTimeout(async () => {
@@ -119,7 +131,7 @@ module.exports = {
           content: 'Failed to close the ticket.',
           ephemeral: true,
         });
-      } catch {}
+      } catch { }
     }
   },
 };

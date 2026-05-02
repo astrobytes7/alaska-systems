@@ -1,5 +1,8 @@
 const { Client, ActivityType } = require('discord.js');
 const mongoose = require('mongoose');
+const express = require('express');
+const fs = require('fs');
+const path = require('path');
 const { MONGOURL, TOKEN } = require('./config.js');
 const { stopSessionUpdater, updateSessionStatus } = require('./utils/SessionUpdater.js')
 
@@ -13,6 +16,18 @@ const client = new Client({
         "MessageContent"
     ]
 });
+
+// --- Transcript Hosting Setup ---
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Serve the transcripts folder publicly
+app.use('/transcripts', express.static(path.join(__dirname, 'public/transcripts')));
+
+app.listen(PORT, () => {
+    console.log(`Transcript server is running on port ${PORT}`);
+});
+// --------------------------------
 
 client.config = require('./config.js');
 client.messages = new Map();

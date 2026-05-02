@@ -10,19 +10,19 @@ module.exports = {
   customID: 'claimTicket',
 
   async execute(interaction) {
-        const requiredRoleId = ''; // role id
+    const requiredRoleId = '1497748354136936609'; // role id
 
-        if (!interaction.guild.roles.cache.get(requiredRoleId)) {
-            return intercation.reply({
-                content: "The role set is currently invalid.",
-            });
-        }
+    if (!interaction.guild.roles.cache.get(requiredRoleId)) {
+      return intercation.reply({
+        content: "The role set is currently invalid.",
+      });
+    }
 
-        if (!interaction.member.roles.cache.has(requiredRoleId)) {
-            return interaction.reply({
-                content: 'You do not have permission to use this button.',
-            });
-        }
+    if (!interaction.member.roles.cache.has(requiredRoleId)) {
+      return interaction.reply({
+        content: 'You do not have permission to use this button.',
+      });
+    }
 
     try {
       const user = interaction.user;
