@@ -68,6 +68,10 @@ module.exports = {
 
     const ticketId = channel.id;
 
+    const banner = new EmbedBuilder()
+      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500187993464508658/image.png?ex=69f78671&is=69f634f1&hm=5a1b71a60124de51afbb01c94819faadcbe5394cf9eaf09f858278a08171eac4&=&format=webp&quality=lossless&width=2834&height=849')
+      .setColor('#242429')
+
     const embed = new EmbedBuilder()
       .setTitle('Support Ticket')
       .setColor('#242429')
@@ -80,9 +84,7 @@ module.exports = {
         { name: 'Inquiry', value: `${inquiry}`, inline: true },
         { name: 'Roblox ID', value: 'Undefined', inline: true },
       )
-      .setFooter({ text: `Ticket ID: ${ticketId}` })
-      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194')
-      .setTimestamp();
+      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194');
 
     const claimButton = new ButtonBuilder()
       .setCustomId('claimTicket')
@@ -98,7 +100,7 @@ module.exports = {
 
     const ticketMessage = await channel.send({
       content: `<@${user.id}> | <@&${config.role}>`,
-      embeds: [embed],
+      embeds: [banner, embed],
       components: [actionRow],
     });
 
