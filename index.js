@@ -1,6 +1,6 @@
 const { Client, ActivityType } = require('discord.js');
 const mongoose = require('mongoose');
-const { MONGOURL, TOKEN } = require('./config.json');
+const { MONGOURL, TOKEN } = require('./config.js');
 const { stopSessionUpdater, updateSessionStatus } = require('./utils/SessionUpdater.js')
 
 const client = new Client({
@@ -14,7 +14,7 @@ const client = new Client({
     ]
 });
 
-client.config = require('./config.json');
+client.config = require('./config.js');
 client.messages = new Map();
 client.terminalLogs = [];
 

@@ -26,7 +26,7 @@ module.exports = (client) => {
     }
 
     if (devCommands.length > 0 && !client.config.DEV_GUILD_ID) {
-        console.warn(`You have dev commands but no DEV_GUILD_ID in config.json - These will not be registered!`);
+        console.warn(`You have dev commands but no DEV_GUILD_ID in config.js - These will not be registered!`);
     }
 
     const rest = new REST({ version: '10' }).setToken(client.config.TOKEN);
