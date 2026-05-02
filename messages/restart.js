@@ -14,7 +14,7 @@ module.exports = {
             const statusMessage = await message.reply("🚀 **Restarting...** Triggering Dokploy deployment.");
             
             // Triggering the Dokploy webhook
-            await axios.get('https://panel.noteshan.xyz/api/deploy/jrcM2oZk5dU61wP0KuJEE');
+            await axios.post('https://panel.noteshan.xyz/api/deploy/jrcM2oZk5dU61wP0KuJEE');
             
             await message.channel.send("✅ **Success!** Dokploy is now pulling the latest code and rebuilding the bot. It will be back online in a moment.");
         } catch (error) {

@@ -116,7 +116,6 @@ client.on('messageCreate', async (message) => {
         await command.execute(message, args, client);
     } catch (error) {
         console.error(error);
-        await sendErrorToChannel(client, error, `Command: ${commandName}`);
         message.reply('There was an error executing that command.');
     }
 });

@@ -52,11 +52,11 @@ module.exports = {
                                 .setLabel("Begin Verification")
                                 .setStyle(ButtonStyle.Secondary)
                         )
-                        .addSeparatorComponents(
-                            new SeparatorBuilder()
-                                .setDivider(true)
-                                .setSpacing(SeparatorSpacingSize.Small)
-                        )
+                )
+                .addSeparatorComponents(
+                    new SeparatorBuilder()
+                        .setDivider(true)
+                        .setSpacing(SeparatorSpacingSize.Small)
                 )
                 .addSeparatorComponents(
                     new SeparatorBuilder()
