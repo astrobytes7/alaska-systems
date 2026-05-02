@@ -52,13 +52,14 @@ module.exports = {
 
       const transcript = await DiscordTranscripts.createTranscript(channel, {
         limit: -1,
-        returnType: 'buffer',
-        filename: `${ticket.username}-${ticket.ticketId}.html`,
-        saveImages: false,
+        returnType: 'string',
+        saveImages: true,
       });
 
       const fileName = `${ticket.username}-${ticket.ticketId}.html`;
       const filePath = path.join(__dirname, '../public/transcripts', fileName);
+      
+      console.log(`Saving transcript for ${ticket.username} (${transcript.length} bytes) to ${filePath}`);
       
       // Ensure the directory exists
       if (!fs.existsSync(path.dirname(filePath))) {
