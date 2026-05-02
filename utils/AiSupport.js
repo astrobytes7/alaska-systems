@@ -17,9 +17,9 @@ async function handleAiResponse(message, client) {
         return await message.reply(`A staff member has been alerted to your request. Please wait for a <@&${staffRole}> to assist you.`);
     }
 
-    const grok = new OpenAI({
+    const groq = new OpenAI({
         apiKey: client.config.GROK_API,
-        baseURL: "https://api.x.ai/v1",
+        baseURL: "https://api.groq.com/openai/v1",
     });
 
     const serverData = await getServerData();
@@ -34,8 +34,8 @@ async function handleAiResponse(message, client) {
     }
 
     try {
-        const response = await grok.chat.completions.create({
-            model: "grok-2",
+        const response = await groq.chat.completions.create({
+            model: "llama-3.3-70b-versatile",
             messages: [
                 {
                     role: "system",

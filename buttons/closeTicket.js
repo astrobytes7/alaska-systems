@@ -71,7 +71,7 @@ module.exports = {
 
       const onlineTranscriptURL = `https://alaska.noteshan.xyz/transcripts/${fileName}`;
 
-      const transcriptFile = new AttachmentBuilder(transcript, {
+      const transcriptFile = new AttachmentBuilder(Buffer.from(transcript), {
         name: fileName,
       });
 
