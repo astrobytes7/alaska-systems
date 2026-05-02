@@ -22,7 +22,7 @@ module.exports = {
         );
 
         if (!data || data.error) {
-            return interaction.reply({
+            return interaction.editReply({
                 content:
                     "Couldn't verify your Roblox account. Make sure your Discord is linked in Docksys.",
                 flags: MessageFlags.Ephemeral,
@@ -64,7 +64,7 @@ module.exports = {
                 ),
         ];
 
-        await interaction.reply({
+        await interaction.editReply({
             flags: MessageFlags.IsComponentsV2,
             ephemeral: true,
             components: components,
