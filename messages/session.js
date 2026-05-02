@@ -35,7 +35,7 @@ module.exports = {
             const mainEmbed = new EmbedBuilder()
                 .setColor('#242429')
                 .setDescription(
-                    `## Session Embed\n> Your session embed description!\n\n* Server Name: ${name}\n* Server Code: ${joinKey}\n* Server Owner: ${ownerUsername}`)
+                    `## Session Embed\n> Thank you for choosing **<:alaskalogo112:1499028371479199909> Alaska State Roleplay**. In this informational embed you van view our live server stats, and server information. If you require assistance please feel free to open a ticket in our assistance channel. \n\n* Server Name: ${name}\n* Server Code: ${joinKey}\n* Server Owner: ${ownerUsername}`)
                 .setImage('https://cdn.discordapp.com/attachments/1229606366759354368/1431062576586031236/image.png?ex=68fc0c62&is=68fabae2&hm=ea09b9a33e9f18db04dffa51246dad967fcd27fd903a6f13ae063011f17e4cf3&');
 
             const playerEmbed = new EmbedBuilder()
