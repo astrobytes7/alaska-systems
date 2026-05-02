@@ -4,7 +4,8 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { MONGOURL, TOKEN } = require('./config.js');
-const { stopSessionUpdater, updateSessionStatus } = require('./utils/SessionUpdater.js')
+const { stopSessionUpdater, updateSessionStatus } = require('./utils/SessionUpdater.js');
+const { handleAiResponse } = require('./utils/AiSupport');
 
 const client = new Client({
     intents: [
@@ -97,6 +98,10 @@ client.once('clientReady', async () => {
 
 client.on('messageCreate', async (message) => {
     const prefix = client.config.PREFIX;
+
+    // AI Support Handler for tickets
+    await handleAiResponse(message, client);
+
     if (message.author.bot || !message.content.startsWith(prefix)) return;
 
     const args = message.content.slice(1).trim().split(/\s+/);
