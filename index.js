@@ -24,7 +24,12 @@ const PORT = process.env.PORT || 3000;
 // Serve the transcripts folder publicly
 app.use('/transcripts', express.static(path.join(__dirname, 'public/transcripts')));
 
-app.listen(PORT, () => {
+// Health check route
+app.get('/', (req, res) => {
+    res.send('Alaska Transcript Server is Online!');
+});
+
+app.listen(PORT, '0.0.0.0', () => {
     console.log(`Transcript server is running on port ${PORT}`);
 });
 // --------------------------------
