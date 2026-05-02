@@ -11,7 +11,7 @@ async function handleAiResponse(message, client) {
     if (message.author.bot) return;
 
     // "I need a human" handoff logic
-    const handoffTriggers = ["human", "staff", "person", "someone", "real", "handoff", "help"];
+    const handoffTriggers = ["human", "staff", "person", "someone", "real", "handoff"];
     if (message.content.toLowerCase().includes("human") || message.content.toLowerCase().includes("need staff")) {
         const staffRole = '1497748722849681540'; // management/staff role id
         return await message.reply(`A staff member has been alerted to your request. Please wait for a <@&${staffRole}> to assist you.`);
