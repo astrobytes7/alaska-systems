@@ -12,6 +12,7 @@ const ticketSchema = new mongoose.Schema({
   closedBy: { type: String, default: null },
   ticketId: { type: String, required: true, unique: true },
   closeReason: { type: String, default: 'Not Provided' },
+  aiEnabled: { type: Boolean, default: true },
 });
 
 module.exports = mongoose.model('Ticket', ticketSchema);

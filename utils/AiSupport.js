@@ -5,16 +5,20 @@ const Ticket = require("../models/ticketSchema");
 async function handleAiResponse(message, client) {
     // Check if the message is in a ticket channel
     const ticket = await Ticket.findOne({ channelId: message.channel.id, status: 'open' });
-    if (!ticket) return;
+    if (!ticket || ticket.aiEnabled === false) return;
 
     // Ignore bot messages
     if (message.author.bot) return;
 
     // "I need a human" handoff logic
-    const handoffTriggers = ["human", "staff", "person", "someone", "real", "handoff"];
-    if (message.content.toLowerCase().includes("human") || message.content.toLowerCase().includes("need staff")) {
+    if (message.content.toLowerCase().includes("i need a human") || message.content.toLowerCase().includes("need staff")) {
         const staffRole = '1497748722849681540'; // management/staff role id
-        return await message.reply(`A staff member has been alerted to your request. Please wait for a <@&${staffRole}> to assist you.`);
+        
+        // Permanently disable AI for this ticket
+        ticket.aiEnabled = false;
+        await ticket.save();
+
+        return await message.reply(`A staff member has been alerted to your request. AI support has been disabled for this chat. Please wait for a <@&${staffRole}> to assist you.`);
     }
 
     const groq = new OpenAI({
