@@ -75,9 +75,9 @@ module.exports = {
         name: user.tag,
         iconURL: user.displayAvatarURL(),
       })
-      .setDescription(`Ticket type: **${selectedValue}**\nInquiry: **${inquiry}**`)
+      .setDescription(`Thank you for contacting **<:alaskalogo112:1499028371479199909> Alaska State Roleplay** Support. Please do not ping any staff member, as they have already been pinged regarding your issue. Thank you for understanding.`)
       .addFields(
-        { name: 'Discord ID', value: user.id, inline: true },
+        { name: 'Inquiry', value: `${inquiry}`, inline: true },
         { name: 'Roblox ID', value: 'Undefined', inline: true },
       )
       .setFooter({ text: `Ticket ID: ${ticketId}` })
