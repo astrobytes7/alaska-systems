@@ -38,7 +38,7 @@ async function updateSessionStatus(client) {
                     { name: "Active Staff", value: `\`\`\`${staffCount}\`\`\``, inline: true },
                     { name: "In Queue", value: `\`\`\`${queueCount}\`\`\``, inline: true }
                 )
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261520019783882/2.png?ex=6914870f&is=6913358f&hm=ca3406181cba40825ab309d5a11407a070218d2fa38aaf424610d311ebe72ec6&=&format=webp&quality=lossless&width=2576&height=120");
+                .setImage("https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194");
 
             statusButton = new ButtonBuilder()
                 .setCustomId("session_status")
@@ -54,7 +54,7 @@ async function updateSessionStatus(client) {
                     { name: "Active Staff", value: `\`\`\`${staffCount}\`\`\``, inline: true },
                     { name: "In Queue", value: `\`\`\`${queueCount}\`\`\``, inline: true }
                 )
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261520019783882/2.png?ex=6914870f&is=6913358f&hm=ca3406181cba40825ab309d5a11407a070218d2fa38aaf424610d311ebe72ec6&=&format=webp&quality=lossless&width=2576&height=120");
+                .setImage("https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194");
 
             statusButton = new ButtonBuilder()
                 .setCustomId("session_status")

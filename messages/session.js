@@ -5,8 +5,8 @@ const { getServerData } = require("../utils/ErlcApi"); // Update ERLC Api in uti
 module.exports = {
     name: "session",
     async execute(message, args, client) {
-        const requiredRoleId = ""; // role id
-        
+        const requiredRoleId = "1497748722849681540"; // role id
+
         if (!message.guild.roles.cache.get(requiredRoleId)) {
             return message.reply({
                 content: "The role set is currently invalid.",
@@ -14,11 +14,11 @@ module.exports = {
         }
 
         if (!message.member.roles.cache.has(requiredRoleId)) {
-          return;
+            return;
         }
-        
+
         try {
-            
+
             let session = await Session.findOne({});
             if (!session) {
                 session = new Session();
@@ -30,13 +30,13 @@ module.exports = {
 
             const imageEmbed = new EmbedBuilder()
                 .setColor("#242429")
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261519461679134/1.png?ex=6914870e&is=6913358e&hm=2e92cc4ab447b84e868934b8d3754b46fd26bc9190524d2b082a5aa4ce3b7cef&=&format=webp&quality=lossless&width=2576&height=764");
+                .setImage("https://media.discordapp.net/attachments/1400662781216296960/1500195923161255936/image.png?ex=69f78dd4&is=69f63c54&hm=2837c6db7be3713d0a5843a3304327b383130a133625e1c3c93a2f37955ad700&=&format=webp&quality=lossless&width=1210&height=363");
 
             const mainEmbed = new EmbedBuilder()
                 .setColor('#242429')
                 .setDescription(
                     `## Session Embed\n> Your session embed description!\n\n* Server Name: ${name}\n* Server Code: ${joinKey}\n* Server Owner: ${ownerUsername}`)
-                .setImage('https://cdn.discordapp.com/attachments/1229606366759354368/1431062576586031236/image.png?ex=68fc0c62&is=68fabae2&hm=ea09b9a33e9f18db04dffa51246dad967fcd27fd903a6f13ae063011f17e4cf3&'); 
+                .setImage('https://cdn.discordapp.com/attachments/1229606366759354368/1431062576586031236/image.png?ex=68fc0c62&is=68fabae2&hm=ea09b9a33e9f18db04dffa51246dad967fcd27fd903a6f13ae063011f17e4cf3&');
 
             const playerEmbed = new EmbedBuilder()
                 .setDescription(`## In-Game Status\n\n**Last Updated:** <t:${Math.floor(Date.now() / 1000)}:R>`)
@@ -46,8 +46,8 @@ module.exports = {
                     { name: "Active Staff", value: `\`\`\`${staffCount}\`\`\``, inline: true },
                     { name: "In Queue", value: `\`\`\`${queueCount}\`\`\``, inline: true }
                 )
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261520019783882/2.png?ex=6914870f&is=6913358f&hm=ca3406181cba40825ab309d5a11407a070218d2fa38aaf424610d311ebe72ec6&=&format=webp&quality=lossless&width=2576&height=120")
-            
+                .setImage("https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194")
+
             const roleButton = new ButtonBuilder()
                 .setCustomId("sessionRole")
                 .setLabel('Session Role')

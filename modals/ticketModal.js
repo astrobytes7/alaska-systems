@@ -29,12 +29,12 @@ module.exports = {
 
     const ticketConfig = {
       general: {
-        role: '', // general support role id
-        category: '', // general category id
+        role: '1497750066134388927', // general support role id
+        category: '1500196688831189062', // general category id
       },
       management: {
-        role: '', // management role id
-        category: '', // management category id
+        role: '1497748722849681540', // management role id
+        category: '1500196688831189062', // management category id
       },
     };
 
@@ -69,7 +69,7 @@ module.exports = {
     const ticketId = channel.id;
 
     const embed = new EmbedBuilder()
-      .setTitle('New Ticket')
+      .setTitle('Support Ticket')
       .setColor('#242429')
       .setAuthor({
         name: user.tag,
@@ -77,11 +77,11 @@ module.exports = {
       })
       .setDescription(`Ticket type: **${selectedValue}**\nInquiry: **${inquiry}**`)
       .addFields(
-        { name: 'field', value: 'None', inline: true },
-        { name: '2nd field', value: 'none', inline: true },
+        { name: 'Discord ID', value: user.id, inline: true },
+        { name: 'Roblox ID', value: 'Undefined', inline: true },
       )
       .setFooter({ text: `Ticket ID: ${ticketId}` })
-      .setImage('https://media.discordapp.net/attachments/1433261489879519302/1433261520019783882/2.png?ex=6913de4f&is=69128ccf&hm=a0d23fe0915dfaedff9c09793a183a97db72c85569dd2f261b9f7ecd56832044&=&format=webp&quality=lossless&width=2576&height=120')
+      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194')
       .setTimestamp();
 
     const claimButton = new ButtonBuilder()

@@ -7,8 +7,8 @@ module.exports = {
     description: "Issue a session shutdown.",
 
     async execute(message, args, client) {
-        const requiredRoleId = ""; // role id
-        
+        const requiredRoleId = "1497748722849681540"; // role id
+
         if (!message.guild.roles.cache.get(requiredRoleId)) {
             return message.reply({
                 content: "The role set is currently invalid.",
@@ -16,7 +16,7 @@ module.exports = {
         }
 
         if (!message.member.roles.cache.has(requiredRoleId)) {
-          return;
+            return;
         }
 
         try {

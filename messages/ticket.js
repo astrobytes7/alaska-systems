@@ -34,7 +34,7 @@ module.exports = {
         { name: 'General Ticket', value: '- Inquries\n- Claiming', inline: true },
         { name: 'Management Ticket', value: '- Reports\n- Manager Inquries', inline: true }
       )
-      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500174476854300672/REGULATIONS-59.png?ex=69f779db&is=69f6285b&hm=c19128854c1857fb5c66c55d2274af3f1ad559788ce8d109f66790b21b1dba44&=&format=webp&quality=lossless&width=2834&height=189')
+      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194')
 
     const dropdownMenu = new StringSelectMenuBuilder()
       .setCustomId("ticketDropdown")

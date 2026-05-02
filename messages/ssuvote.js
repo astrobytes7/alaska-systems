@@ -6,8 +6,8 @@ module.exports = {
     description: 'ssu vote',
 
     async execute(message) {
-        const requiredRoleId = ""; // role id
-        
+        const requiredRoleId = "1497748722849681540"; // role id
+
 
         if (!message.guild.roles.cache.get(requiredRoleId)) {
             return message.reply({
@@ -17,10 +17,10 @@ module.exports = {
 
 
         if (!message.member.roles.cache.has(requiredRoleId)) {
-          return;
+            return;
         }
 
-        try { 
+        try {
             const amountRequired = '2' // amount required for votes
             const sessionChannelId = ""; // channel id
             const sessionChannel = message.guild.channels.cache.get(sessionChannelId);
@@ -60,10 +60,10 @@ module.exports = {
 
             const buttons = new ActionRowBuilder().addComponents(button, button2);
 
-            const msg = await sessionChannel.send({ 
-                content: `@here | <@&roleid>`, 
-                embeds: [imageEmbed, embed], 
-                components: [buttons] 
+            const msg = await sessionChannel.send({
+                content: `@here | <@&roleid>`,
+                embeds: [imageEmbed, embed],
+                components: [buttons]
             });
 
             await SsuVote.deleteMany({});
