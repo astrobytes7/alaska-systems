@@ -64,16 +64,25 @@ module.exports = {
                 });
             }
 
-            const originalEmbed = msg.embeds[0];
-            if (!originalEmbed) {
+            const embeds = msg.embeds;
+            if (embeds.length === 0) {
                 return interaction.reply({
                     content: 'Original promotion embed not found.',
                     ephemeral: true
                 });
             }
 
-            const updatedEmbed = EmbedBuilder.from(originalEmbed)
-                .setFooter({ text: `Promotion ID: ${promo.promotionId} • Revoked by ${interaction.user.tag}` });
+            let updatedEmbeds = [];
+            if (embeds.length >= 2) {
+                // embeds[0] is banner, embeds[1] is info
+                const updatedInfo = EmbedBuilder.from(embeds[1])
+                    .setFooter({ text: `Promotion ID: ${promo.promotionId} • Revoked by ${interaction.user.tag}` });
+                updatedEmbeds = [embeds[0], updatedInfo];
+            } else {
+                const updatedInfo = EmbedBuilder.from(embeds[0])
+                    .setFooter({ text: `Promotion ID: ${promo.promotionId} • Revoked by ${interaction.user.tag}` });
+                updatedEmbeds = [updatedInfo];
+            }
 
             const row = new ActionRowBuilder().addComponents(
                 new ButtonBuilder()
@@ -84,7 +93,7 @@ module.exports = {
             );
 
             await msg.edit({
-                embeds: [updatedEmbed],
+                embeds: updatedEmbeds,
                 components: [row]
             });
 
