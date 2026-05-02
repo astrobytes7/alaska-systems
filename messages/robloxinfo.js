@@ -1,4 +1,4 @@
-const { getRobloxInfo } = require("../Utils/docksystem");
+const { getRobloxInfo } = require("../utils/docksystem.js");
 
 module.exports = {
     name: "id",

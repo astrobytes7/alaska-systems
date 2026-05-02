@@ -2,7 +2,7 @@ module.exports = {
     name: 'say',
     description: 'Sends your message as the bot.',
     async execute(message, args) {
-        const requiredRoleId = ''; // role ID of who can use this command
+        const requiredRoleId = '1497748722849681540'; // role ID of who can use this command
 
         if (!message.guild.roles.cache.get(requiredRoleId)) {
             return message.reply("The role set is currently invalid.");

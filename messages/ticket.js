@@ -7,54 +7,54 @@ const {
 } = require("discord.js");
 
 module.exports = {
-  name: "ticket",
+  name: "support",
   cooldown: 5,
   async execute(message) {
     await message.delete()
-    const requiredRoleId = ""; // role id
-            if (!message.guild.roles.cache.get(requiredRoleId)) {
-            return message.reply({
-                content: "The role set is currently invalid.",
-            });
-        }
-        
+    const requiredRoleId = "1498773946261045338"; // role id
+    if (!message.guild.roles.cache.get(requiredRoleId)) {
+      return message.reply({
+        content: "The role set is currently invalid.",
+      });
+    }
+
     if (!message.member.roles.cache.has(requiredRoleId)) {
-        return;
-    } 
+      return;
+    }
 
     const imageEmbed = new EmbedBuilder()
-      .setImage('https://media.discordapp.net/attachments/1433261489879519302/1433261519461679134/1.png?ex=6913de4e&is=69128cce&hm=6da0bd5ed1363a6eed036ccfa3d99955053bebcc235655fb5447aaf7163cce10&=&format=webp&quality=lossless&width=2576&height=764')
+      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500187993464508658/image.png?ex=69f78671&is=69f634f1&hm=5a1b71a60124de51afbb01c94819faadcbe5394cf9eaf09f858278a08171eac4&=&format=webp&quality=lossless&width=1210&height=363')
       .setColor('#242429')
 
     const embed = new EmbedBuilder()
       .setColor("#242429")
-      .setTitle('Your Title')
-      .setDescription(`Your Description`)
+      .setTitle('Assistance')
+      .setDescription(`Welcome to **<:alaskalogo112:1499028371479199909> Alaska State Roleplay**. If you have any questions, feel free to open a ticket and ask our helpful staff members. Please note that troll tickets, spamming tickets, and disrespect to our staff members will not be tolerated.`)
       .setFields(
-        { name: 'General Ticket', value: 'Supports\nSupports\nSupports', inline: true },
-        { name: 'Management Ticket', value: 'Supports\nSupports\nSupports', inline: true }
+        { name: 'General Ticket', value: 'Inquries\nClaiming', inline: true },
+        { name: 'Management Ticket', value: 'Reports\nManager Inquries', inline: true }
       )
-      .setImage('https://media.discordapp.net/attachments/1433261489879519302/1433261520019783882/2.png?ex=6913de4f&is=69128ccf&hm=a0d23fe0915dfaedff9c09793a183a97db72c85569dd2f261b9f7ecd56832044&=&format=webp&quality=lossless&width=2576&height=120')
+      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500174476854300672/REGULATIONS-59.png?ex=69f779db&is=69f6285b&hm=c19128854c1857fb5c66c55d2274af3f1ad559788ce8d109f66790b21b1dba44&=&format=webp&quality=lossless&width=2834&height=189')
 
     const dropdownMenu = new StringSelectMenuBuilder()
       .setCustomId("ticketDropdown")
       .setPlaceholder("request assistance")
       .addOptions([
         {
-          label: "general",
-          description: 'general ticket',
+          label: "General Support",
+          description: 'Open a general support ticket',
           value: 'general'
         },
         {
-          label: "management",
-          description: 'management ticket',
+          label: "Management Support",
+          description: 'Open a management support ticket',
           value: 'management'
         },
       ]);
 
-      const row = new ActionRowBuilder().addComponents(dropdownMenu)
+    const row = new ActionRowBuilder().addComponents(dropdownMenu)
     try {
-    await message.channel.send({
+      await message.channel.send({
         embeds: [imageEmbed, embed],
         components: [row]
       });
