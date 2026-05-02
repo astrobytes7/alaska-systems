@@ -13,7 +13,7 @@ module.exports = {
         ),
 
     async execute(interaction) {
-        const requiredRoleId = ''; // role id
+        const requiredRoleId = '1497748722849681540'; // role id
 
         if (!interaction.guild.roles.cache.get(requiredRoleId)) {
             return interaction.reply({
@@ -45,7 +45,7 @@ module.exports = {
                 });
             }
 
-            const channelId = ''; // channel id
+            const channelId = '1497733150946627752'; // channel id
             const channel = await interaction.guild.channels.fetch(channelId);
             if (!channel) {
                 return interaction.reply({

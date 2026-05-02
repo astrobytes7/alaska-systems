@@ -33,7 +33,7 @@ module.exports = {
         ),
 
     async execute(interaction) {
-        const requiredRoleId = ''; // role id
+        const requiredRoleId = '1497748722849681540'; // role id
 
         if (!interaction.guild.roles.cache.get(requiredRoleId)) {
             return interaction.reply({
@@ -53,7 +53,7 @@ module.exports = {
             const reason = interaction.options.getString('reason');
             const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             const infractionId = Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
-            const channelId = ''; // channel id
+            const channelId = '1497733150946627753'; // channel id
             const channel = await interaction.guild.channels.fetch(channelId);
             if (!channel) {
                 return interaction.reply({
@@ -61,6 +61,10 @@ module.exports = {
                     ephemeral: true
                 });
             }
+
+            const banner = new EmbedBuilder()
+                .setImage("https://media.discordapp.net/attachments/1400662781216296960/1500222803700486155/image.png?ex=69f7a6dd&is=69f6555d&hm=8532a9bd47a16f54d8c044ef1cd6aed5dbf431f7e9505ca06e83e2afa4bb3701&=&format=webp&quality=lossless&width=2834&height=849")
+                .setColor('#242429');
 
             const embed = new EmbedBuilder()
                 .setColor('#242429')
@@ -74,12 +78,12 @@ module.exports = {
                     { name: 'Punishment', value: `${punishment}`, inline: true },
                     { name: 'Reason', value: `${reason}`, inline: false },
                 )
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261520019783882/2.png?ex=6914870f&is=6913358f&hm=ca3406181cba40825ab309d5a11407a070218d2fa38aaf424610d311ebe72ec6&=&format=webp&quality=lossless&width=2576&height=120")
+                .setImage("https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194")
                 .setFooter({ text: `Infraction ID: ${infractionId}` });
 
             const msg = await channel.send({
                 content: `<@${user.id}>`,
-                embeds: [embed],
+                embeds: [banner, embed],
             });
 
             await Infraction.create({

@@ -25,7 +25,7 @@ module.exports = {
         ),
 
     async execute(interaction) {
-        const requiredRoleId = ''; // role id
+        const requiredRoleId = '1497748722849681540'; // role id
 
         if (!interaction.guild.roles.cache.get(requiredRoleId)) {
             return interaction.reply({
@@ -45,7 +45,7 @@ module.exports = {
             const reason = interaction.options.getString('reason');
             const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
             const promotionId = Array.from({ length: 4 }, () => chars[Math.floor(Math.random() * chars.length)]).join('');
-            const channelId = ''; // channel id
+            const channelId = '1497733150946627752'; // channel id
             const channel = await interaction.guild.channels.fetch(channelId);
 
             if (!channel) {
@@ -54,6 +54,10 @@ module.exports = {
                     ephemeral: true
                 });
             }
+
+            const banner = new EmbedBuilder()
+                .setImage("https://media.discordapp.net/attachments/1400662781216296960/1500223354295157007/image.png?ex=69f7a760&is=69f655e0&hm=ffe0534ef5d1b42c924d5428f031e63e3f3cafcdb57f9b57aa96686403e9b7ae&=&format=webp&quality=lossless&width=2834&height=849")
+                .setColor('#242429');
 
             const embed = new EmbedBuilder()
                 .setColor('#242429')
@@ -67,12 +71,11 @@ module.exports = {
                     { name: 'New Rank', value: `${newRank}`, inline: true },
                     { name: 'Reason', value: `${reason}`, inline: false },
                 )
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261520019783882/2.png?ex=6914870f&is=6913358f&hm=ca3406181cba40825ab309d5a11407a070218d2fa38aaf424610d311ebe72ec6&=&format=webp&quality=lossless&width=2576&height=120")
                 .setFooter({ text: `Promotion ID: ${promotionId}` });
 
             const msg = await channel.send({
                 content: `<@${user.id}>`,
-                embeds: [embed],
+                embeds: [banner, embed],
             });
 
             await Promotion.create({

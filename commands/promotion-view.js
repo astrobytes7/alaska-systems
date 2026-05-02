@@ -19,7 +19,7 @@ module.exports = {
         ),
 
     async execute(interaction) {
-        const requiredRoleId = ''; // role id
+        const requiredRoleId = '1497748722849681540'; // role id
 
         if (!interaction.guild.roles.cache.get(requiredRoleId)) {
             return interaction.reply({
