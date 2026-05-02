@@ -60,6 +60,11 @@ module.exports = {
       const fileName = `${ticket.username}-${ticket.ticketId}.html`;
       const filePath = path.join(__dirname, '../public/transcripts', fileName);
       
+      // Ensure the directory exists
+      if (!fs.existsSync(path.dirname(filePath))) {
+        fs.mkdirSync(path.dirname(filePath), { recursive: true });
+      }
+
       // Save the transcript to the local public folder
       fs.writeFileSync(filePath, transcript);
 
