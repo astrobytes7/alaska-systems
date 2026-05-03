@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "start": "node index.js",
     "sync": "git add . && git commit -m \"alaska update :)\" && git push"
   },
   "dependencies": {

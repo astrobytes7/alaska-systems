@@ -40,7 +40,7 @@ async function closeTicket(channel, closer, client, reason = 'No reason provided
 
         fs.writeFileSync(filePath, transcript);
 
-        const onlineTranscriptURL = `https://alaska.noteshan.xyz/transcripts/${fileName}`;
+        const onlineTranscriptURL = `${client.config.DOMAIN}/transcripts/${fileName}`;
 
         const transcriptFile = new AttachmentBuilder(Buffer.from(transcript), {
             name: fileName,
