@@ -27,7 +27,7 @@ module.exports = {
 
     // Banner Embed
     const bannerEmbed = new EmbedBuilder()
-      .setImage('https://media.discordapp.net/attachments/1500287703206596648/1500292656742535250/image.png?ex=69f7e7eb&is=69f6966b&hm=501e75ce3a86f981f70a95f8c892e35344dfc2cebe8d4de61500f9fb69dd49a1&=&format=webp&quality=lossless&width=1210&height=363')
+      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500247369277771998/image.png?ex=69f7bdbe&is=69f66c3e&hm=9d00bef9fceb67ac0bac93f94bbbfa3ba4056cfe71069c5de8a6cac2eab6b8dd&=&format=webp&quality=lossless&width=1210&height=363')
       .setColor('#242429');
 
     // Main Regulations Embed

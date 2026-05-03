@@ -77,7 +77,7 @@ require('./utils/RegisterCommands.js')(client);
 
 client.login(TOKEN);
 
-client.once('clientReady', async () => {
+client.once('ready', async () => {
     try {
         client.user.setActivity({
             name: 'Climbing over Alaska',

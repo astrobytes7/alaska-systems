@@ -1,7 +1,7 @@
 const { stopSessionUpdater, updateSessionStatus } = require('../utils/SessionUpdater.js');
 
 module.exports = {
-  name: "clientReady",
+  name: "ready",
   async execute(client) {
     try {
       stopSessionUpdater();
