@@ -23,7 +23,7 @@ module.exports = {
     }
 
     const imageEmbed = new EmbedBuilder()
-      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500187993464508658/image.png?ex=69f78671&is=69f634f1&hm=5a1b71a60124de51afbb01c94819faadcbe5394cf9eaf09f858278a08171eac4&=&format=webp&quality=lossless&width=1210&height=363')
+      .setImage('https://media.discordapp.net/attachments/1500287703206596648/1500292434738024468/image.png?ex=69f7e7b6&is=69f69636&hm=ae91837cb6814f209e3c66cbff1048ebfe382f923032053e025b3a9138fda1ab&=&format=webp&quality=lossless&width=2834&height=849')
       .setColor('#242429')
 
     const embed = new EmbedBuilder()
@@ -34,7 +34,7 @@ module.exports = {
         { name: 'General Ticket', value: '- Inquries\n- Claiming', inline: true },
         { name: 'Management Ticket', value: '- Reports\n- Manager Inquries', inline: true }
       )
-      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194')
+      .setImage('https://media.discordapp.net/attachments/1500287703206596648/1500290986570416319/image.png?ex=69f7e65d&is=69f694dd&hm=683f3f1be50da9fb377dec43e52f65d38b5005ccbb54a039ac5b90ac267b0e0a&=&format=webp&quality=lossless&width=2834&height=194')
 
     const dropdownMenu = new StringSelectMenuBuilder()
       .setCustomId("ticketDropdown")

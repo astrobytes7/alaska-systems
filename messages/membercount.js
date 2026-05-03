@@ -18,7 +18,7 @@ module.exports = {
     const embed = new EmbedBuilder()
       .setTitle("Membercount")
       .setColor("#242429")
-      .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69f78d5e&is=69f63bde&hm=3e459f9318cc150750c471f0e8afbdf77ad2b5f58096ee456ac69b604574a6e5&=&format=webp&quality=lossless&width=2834&height=194')
+      .setImage('https://media.discordapp.net/attachments/1500287703206596648/1500290986570416319/image.png?ex=69f7e65d&is=69f694dd&hm=683f3f1be50da9fb377dec43e52f65d38b5005ccbb54a039ac5b90ac267b0e0a&=&format=webp&quality=lossless&width=2834&height=194')
       .addFields(
         { name: "Total Members", value: totalMembers.toString(), inline: true },
         { name: "Online Members", value: onlineMembers.toString(), inline: true },

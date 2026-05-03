@@ -5,7 +5,7 @@ module.exports = {
 
     async execute(interaction) {
         try {
-            const roleId = ""; // role id
+            const roleId = "1500293414036701194"; // role id
             const role = interaction.guild.roles.cache.get(roleId);
 
             if (!role) {
