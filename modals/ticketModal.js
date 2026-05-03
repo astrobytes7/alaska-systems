@@ -24,6 +24,14 @@ module.exports = {
 
     selectionMap.delete(interaction.user.id);
 
+    // Check if user already has an open ticket
+    const existingTicket = await Ticket.findOne({ userId: interaction.user.id, status: 'open' });
+    if (existingTicket) {
+      return interaction.editReply({
+        content: `You already have an open ticket: <#${existingTicket.channelId}>`,
+      });
+    }
+
     const inquiry = interaction.fields.getTextInputValue('inquiry');
     const guild = interaction.guild;
     const user = interaction.user;
