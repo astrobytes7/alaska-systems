@@ -40,12 +40,16 @@ module.exports = {
                 to: targetEmail,
                 subject: 'Message from Alaska State Roleplay Support',
                 text: emailMessage,
-                html: `<div style="font-family: sans-serif; padding: 20px; color: #242429;">
-                        <h2>Alaska State Roleplay</h2>
-                        <p>${emailMessage.replace(/\n/g, '<br>')}</p>
-                        <hr>
-                        <p style="font-size: 0.8em; color: #666;">This is an automated message sent from the Alaska Systems Bot.</p>
-                       </div>`,
+                html: `
+                <div style="font-family: sans-serif; padding: 20px; color: #242429; border: 1px solid #eee; border-radius: 8px; max-width: 600px;">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+                        <img src="${message.guild.iconURL({ extension: 'png', size: 128 })}" alt="Alaska Logo" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+                        <h2 style="margin: 0;">Alaska State Roleplay</h2>
+                    </div>
+                    <p style="font-size: 1.1em; line-height: 1.5;">${emailMessage.replace(/\n/g, '<br>')}</p>
+                    <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">
+                    <p style="font-size: 0.8em; color: #666;">This is an automated message sent from the Alaska Systems Bot regarding your support inquiry.</p>
+                </div>`,
             };
 
             await transporter.sendMail(mailOptions);
