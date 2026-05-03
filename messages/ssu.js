@@ -26,7 +26,7 @@ module.exports = {
         }
 
         try {
-            const sessionChannelId = ""; // channel id
+            const sessionChannelId = "1497733145980698636"; // channel id
             const sessionChannel = message.guild.channels.cache.get(sessionChannelId);
 
             if (!sessionChannel) {
@@ -38,21 +38,20 @@ module.exports = {
             const { name, ownerUsername, ownerId, joinKey, currentPlayers, maxPlayers, staffCount, queueCount } = await getServerData();
 
             const imageEmbed = new EmbedBuilder()
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261519461679134/1.png?ex=6914870e&is=6913358e&hm=2e92cc4ab447b84e868934b8d3754b46fd26bc9190524d2b082a5aa4ce3b7cef&=&format=webp&quality=lossless&width=2576&height=764")
+                .setImage("https://media.discordapp.net/attachments/1500287703206596648/1500576853876936895/image.png?ex=69f8f099&is=69f79f19&hm=f094f0ee5f3c3864d79cf4096d2da3433b5bcdf5dcede29b85edb7a81ed98fed&=&format=webp&quality=lossless&width=2834&height=849")
                 .setColor("#242429");
 
             const embed = new EmbedBuilder()
                 .setColor("#242429")
                 .setTitle("Session Startup")
                 .setDescription(
-                    "Our session is online"
+                    "The **<:alaskalogo112:1499028371479199909> Alaska State Roleplay** high rank team has decided to start a session. Please feel free to join our server by using code asrpp to join."
                 )
                 .setAuthor({
                     name: message.author.tag,
                     iconURL: message.author.displayAvatarURL(),
                 })
-                .setTimestamp()
-                .setImage('https://cdn.discordapp.com/attachments/1229606366759354368/1431062576586031236/image.png?ex=68fc0c62&is=68fabae2&hm=ea09b9a33e9f18db04dffa51246dad967fcd27fd903a6f13ae063011f17e4cf3&')
+                .setImage('https://media.discordapp.net/attachments/1500287703206596648/1500290986570416319/image.png?ex=69f88f1d&is=69f73d9d&hm=ab9cbc2443b1cdeb354137bb09a7c43ad1dfbafa1effced6a5d404903e2393bb&=&format=webp&quality=lossless&width=2834&height=194')
 
             const button = new ButtonBuilder()
                 .setLabel("Quick Join")

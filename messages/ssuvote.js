@@ -21,8 +21,8 @@ module.exports = {
         }
 
         try {
-            const amountRequired = '2' // amount required for votes
-            const sessionChannelId = ""; // channel id
+            const amountRequired = '7' // amount required for votes
+            const sessionChannelId = "1497733145980698636"; // channel id
             const sessionChannel = message.guild.channels.cache.get(sessionChannelId);
 
             if (!sessionChannel) {
@@ -34,7 +34,7 @@ module.exports = {
             const voteData = await SsuVote.findOne({});
 
             const imageEmbed = new EmbedBuilder()
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261519461679134/1.png?ex=6914870e&is=6913358e&hm=2e92cc4ab447b84e868934b8d3754b46fd26bc9190524d2b082a5aa4ce3b7cef&=&format=webp&quality=lossless&width=2576&height=764")
+                .setImage("https://media.discordapp.net/attachments/1500287703206596648/1500576853876936895/image.png?ex=69f8f099&is=69f79f19&hm=f094f0ee5f3c3864d79cf4096d2da3433b5bcdf5dcede29b85edb7a81ed98fed&=&format=webp&quality=lossless&width=1210&height=363")
                 .setColor("#242429");
 
             const embed = new EmbedBuilder()
@@ -45,7 +45,7 @@ module.exports = {
                     iconURL: message.author.displayAvatarURL(),
                 })
                 .setDescription(`An session vote has occured.\n\nWe need **${amountRequired}** votes`)
-                .setImage('https://cdn.discordapp.com/attachments/1229606366759354368/1431062576586031236/image.png?ex=68fc0c62&is=68fabae2&hm=ea09b9a33e9f18db04dffa51246dad967fcd27fd903a6f13ae063011f17e4cf3&')
+                .setImage('https://media.discordapp.net/attachments/1500287703206596648/1500290986570416319/image.png?ex=69f88f1d&is=69f73d9d&hm=ab9cbc2443b1cdeb354137bb09a7c43ad1dfbafa1effced6a5d404903e2393bb&=&format=webp&quality=lossless&width=2834&height=194')
                 .setTimestamp();
 
             const button = new ButtonBuilder()
