@@ -13,7 +13,7 @@ module.exports = {
             .setTitle('Bot Profile Management')
             .setDescription('Select an avatar option from the dropdown below to change the bot\'s profile picture. Note: Some options may be seasonal.')
             .setColor('#242429')
-            .setImage('https://media.discordapp.net/attachments/1500287703206596648/1500292434738024468/image.png?ex=69f7e7b6&is=69f69636&hm=ae91837cb6814f209e3c66cbff1048ebfe382f923032053e025b3a9138fda1ab&=&format=webp&quality=lossless&width=2834&height=849');
+            .setImage('https://media.discordapp.net/attachments/1500287703206596648/1500290986570416319/image.png?ex=69f88f1d&is=69f73d9d&hm=ab9cbc2443b1cdeb354137bb09a7c43ad1dfbafa1effced6a5d404903e2393bb&=&format=webp&quality=lossless&width=2834&height=194');
 
         const selectMenu = new StringSelectMenuBuilder()
             .setCustomId('botAvatarSelect')
