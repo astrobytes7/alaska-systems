@@ -28,12 +28,13 @@ module.exports = {
     const closer = interaction.user;
 
     try {
-      await interaction.reply({
-        content: 'Closing this ticket.',
-        ephemeral: false,
-      });
+      await interaction.deferReply().catch(() => { });
 
       await closeTicket(channel, closer, interaction.client);
+
+      await interaction.editReply({
+        content: 'Ticket closed successfully.',
+      }).catch(() => { });
 
     } catch (error) {
       console.error('Error closing ticket:', error);

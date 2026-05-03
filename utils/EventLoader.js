@@ -13,7 +13,7 @@ module.exports = function (client) {
 		}
 		if (Events[data.name]) data.name = Events[data.name];
 
-		if (!Events[data.name] && !Object.values(Events).includes(data.name)) {
+		if (!Events[data.name] && !Object.values(Events).includes(data.name) && data.name !== 'ready') {
 			console.error(`Invalid event name "${data.name}" - Unknown to Discord.JS`);
 		}
 			

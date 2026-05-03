@@ -13,11 +13,12 @@ module.exports = {
   customID: 'ticketModal',
 
   async execute(interaction) {
+    await interaction.deferReply({ ephemeral: true }).catch(() => { });
+
     const selectedValue = selectionMap.get(interaction.user.id);
     if (!selectedValue) {
-      return interaction.reply({
+      return interaction.editReply({
         content: 'Could not determine ticket type. Please try again.',
-        ephemeral: true,
       });
     }
 
@@ -117,9 +118,8 @@ module.exports = {
       ticketId,
     });
 
-    await interaction.reply({
+    await interaction.editReply({
       content: `Your **${selectedValue}** ticket has been created - <#${channel.id}>`,
-      ephemeral: true,
     });
   },
 };

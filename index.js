@@ -150,9 +150,11 @@ async function InteractionHandler(interaction, interactionType, interactionName)
         await component.execute(interaction, client);
     } catch (error) {
         console.error(`Interaction failed: ${name} - ${error}`);
-        await interaction.deferReply({ ephemeral: true }).catch(() => { });
+        if (!interaction.replied && !interaction.deferred) {
+            await interaction.deferReply({ ephemeral: true }).catch(() => { });
+        }
         await interaction.editReply({
-            content: `${error}`,
+            content: `Interaction Error: ${error.message || error}`,
             embeds: [],
             components: [],
             files: []
