@@ -61,7 +61,7 @@ module.exports = {
             const buttons = new ActionRowBuilder().addComponents(button, button2);
 
             const msg = await sessionChannel.send({
-                content: `@here | <@&roleid>`,
+                content: `@here`,
                 embeds: [imageEmbed, embed],
                 components: [buttons]
             });
