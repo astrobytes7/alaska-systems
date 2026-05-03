@@ -8,5 +8,6 @@ module.exports = {
     GROK_API: process.env.GROK_API,
     GUILD_ID: process.env.GUILD_ID,
     PREFIX: process.env.PREFIX || "-",
-    DOMAIN: process.env.DOMAIN || "https://alaska.noteshan.xyz"
+    DOMAIN: process.env.DOMAIN || "https://alaska.noteshan.xyz",
+    DISABLE_AI: process.env.DISABLE_AI === 'true'
 };

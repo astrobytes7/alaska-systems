@@ -100,7 +100,10 @@ client.on('messageCreate', async (message) => {
     const prefix = client.config.PREFIX;
 
     // AI Support Handler for tickets
-    await handleAiResponse(message, client);
+    // AI Support Handler
+    if (!client.config.DISABLE_AI) {
+        await handleAiResponse(message, client);
+    }
 
     if (message.author.bot || !message.content.startsWith(prefix)) return;
 

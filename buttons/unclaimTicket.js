@@ -13,20 +13,19 @@ module.exports = {
   async execute(interaction) {
 
     try {
+      await interaction.deferUpdate().catch(() => { });
       const channel = interaction.channel;
 
       const ticket = await Ticket.findOne({ channelId: channel.id });
       if (!ticket) {
-        return interaction.reply({
+        return interaction.editReply({
           content: 'Ticket not found in database.',
-          ephemeral: true,
         });
       }
 
       if (ticket.claimedBy !== interaction.user.id) {
-        return interaction.reply({
+        return interaction.editReply({
           content: `You can't unclaim a ticket you didn't claim.`,
-          ephemeral: true,
         });
       }
 
@@ -50,7 +49,7 @@ module.exports = {
 
       const row = new ActionRowBuilder().addComponents(claimButton, closeButton);
 
-      await interaction.update({
+      await interaction.editReply({
         components: [row],
       });
 
