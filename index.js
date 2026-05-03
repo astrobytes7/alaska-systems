@@ -89,6 +89,17 @@ client.once('ready', async () => {
             console.log('I have connected to the database successfully.');
         }
 
+        // Sync bot avatar with server icon
+        const guild = client.guilds.cache.get(client.config.GUILD_ID);
+        if (guild && guild.iconURL()) {
+            const currentAvatar = client.user.avatarURL();
+            const newAvatar = guild.iconURL({ extension: 'png', size: 1024 });
+            if (currentAvatar !== newAvatar) {
+                await client.user.setAvatar(newAvatar).catch(err => console.error("Error setting avatar:", err));
+                console.log("Bot avatar synced with server icon.");
+            }
+        }
+
         console.log(`Logged in as ${client.user.tag}!`)
 
     } catch (err) {
