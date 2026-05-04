@@ -30,20 +30,35 @@ module.exports = {
         }
 
         try {
-            // Update Bot Avatar
-            await interaction.client.user.setAvatar(filePath);
-
-            // Update Role Gradient
+            // 1. Update Role Gradient FIRST (higher rate limit)
             const roleId = '1499184609131368539';
             const role = await interaction.guild.roles.fetch(roleId);
             if (role) {
+                console.log(`Attempting to update role ${roleId} colors to:`, config.primary, config.secondary);
                 await role.edit({
                     primaryColor: config.primary,
                     secondaryColor: config.secondary
-                }).catch(err => console.error("Error updating role color:", err));
+                });
+                console.log("Role update request sent successfully.");
+            } else {
+                console.error("Role not found!");
             }
 
-            await interaction.editReply({ content: `Successfully updated the bot avatar and role gradient to **${selectedValue.replace('avatar_', '').replace('_', ' ')}**!` });
+            // 2. Update Bot Avatar (lower rate limit)
+            let avatarSuccess = true;
+            await interaction.client.user.setAvatar(filePath).catch(err => {
+                console.error("Avatar Update Error (Likely Rate Limit):", err.message);
+                avatarSuccess = false;
+            });
+
+            let responseMessage = `Successfully updated the **Role Gradient** to match the theme!`;
+            if (avatarSuccess) {
+                responseMessage += `\nBot avatar updated successfully.`;
+            } else {
+                responseMessage += `\n**Note:** Avatar could not be updated due to Discord's rate limit (2 changes per hour). Please wait and try again later.`;
+            }
+
+            await interaction.editReply({ content: responseMessage });
         } catch (error) {
             console.error("Error setting avatar:", error);
             await interaction.editReply({ content: `Failed to update avatar: ${error.message}` });
