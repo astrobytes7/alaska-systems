@@ -4,7 +4,7 @@ const express = require('express');
 const fs = require('fs');
 const path = require('path');
 const { MONGOURL, TOKEN } = require('./config.js');
-const { stopSessionUpdater, updateSessionStatus } = require('./utils/SessionUpdater.js');
+const { startSessionUpdater, stopSessionUpdater } = require('./utils/SessionUpdater.js');
 const { handleAiResponse } = require('./utils/AiSupport');
 
 const client = new Client({
@@ -90,9 +90,13 @@ client.once('ready', async () => {
         }
 
         // Sync bot avatar with server icon
-        const guild = client.guilds.cache.get(client.config.GUILD_ID)
+        const guild = client.guilds.cache.get(client.config.GUILD_ID);
 
-        console.log(`Logged in as ${client.user.tag}!`)
+        console.log(`Logged in as ${client.user.tag}!`);
+
+        // Start the session embed guard (checks every 1 s, resends if deleted)
+        startSessionUpdater(client);
+        console.log('[SessionGuard] Session embed guard started.');
 
     } catch (err) {
         console.error('Error during ready event:', err);

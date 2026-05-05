@@ -1,14 +1,14 @@
-const { stopSessionUpdater, updateSessionStatus } = require('../utils/SessionUpdater.js');
+const { startSessionUpdater, stopSessionUpdater } = require('../utils/SessionUpdater.js');
 
 module.exports = {
   name: "ready",
   async execute(client) {
     try {
-      stopSessionUpdater();
-      await updateSessionStatus(client);
-      console.log("Session updater stopped and session status updated successfully.");
+      stopSessionUpdater();                 // clear any stale intervals first
+      startSessionUpdater(client);          // start the 1-second guard + 60-second stats refresh
+      console.log("[SessionChecker] Session embed guard and stat updater started.");
     } catch (error) {
-      console.error("Error on stop and update session status:", error);
+      console.error("[SessionChecker] Error starting session updater:", error);
     }
   }
 };

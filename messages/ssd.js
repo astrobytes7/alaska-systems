@@ -30,7 +30,7 @@ module.exports = {
             }
 
             const imageEmbed = new EmbedBuilder()
-                .setImage("https://media.discordapp.net/attachments/1433261489879519302/1433261519461679134/1.png?ex=6914870e&is=6913358e&hm=2e92cc4ab447b84e868934b8d3754b46fd26bc9190524d2b082a5aa4ce3b7cef&=&format=webp&quality=lossless&width=2576&height=764")
+                .setImage("https://media.discordapp.net/attachments/1400662781216296960/1500195923161255936/image.png?ex=69fad994&is=69f98814&hm=957f393e82537d77fd334cd4d4e5ff5f895a4a0c807ba13fa4564949c2ab07d7&=&format=webp&quality=lossless&width=2834&height=849")
                 .setColor("#242429");
 
             const embed = new EmbedBuilder()
@@ -43,8 +43,7 @@ module.exports = {
                 .setDescription(
                     "This server is shutdown"
                 )
-                .setImage('https://cdn.discordapp.com/attachments/1229606366759354368/1431062576586031236/image.png?ex=68fc0c62&is=68fabae2&hm=ea09b9a33e9f18db04dffa51246dad967fcd27fd903a6f13ae063011f17e4cf3&')
-                .setTimestamp();
+                .setImage('https://media.discordapp.net/attachments/1400662781216296960/1500195426853323002/image.png?ex=69fad91e&is=69f9879e&hm=db6d3bebbd8386b05430719a3a17683aefe97387dc193a71f5c048d6f26644eb&=&format=webp&quality=lossless&width=2834&height=194');
 
             await sessionChannel.send({ embeds: [imageEmbed, embed] });
 
