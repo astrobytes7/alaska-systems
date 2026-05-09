@@ -10,7 +10,7 @@ module.exports = {
 
   async execute(interaction) {
     const transcriptChannelId = '1500199554786525254'; // channel id
-    const requiredRoleId = '1497749785812140086'; // role id
+    const requiredRoleId = '1497750066134388927'; // role id
 
     if (!interaction.guild.roles.cache.get(requiredRoleId)) {
       return interaction.reply({
