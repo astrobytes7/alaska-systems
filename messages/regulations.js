@@ -63,8 +63,18 @@ module.exports = {
       .setLabel('Jurisdiction Map')
       .setStyle(ButtonStyle.Secondary)
 
+    const voiceRules = new ButtonBuilder()
+      .setLabel('Roblox Group')
+      .setStyle(ButtonStyle.Link)
+      .setURL('https://www.roblox.com/communities/779761993/Elevate-26-Community#!/about')
+
+    const staff = new ButtonBuilder()
+      .setLabel('Staff Application')
+      .setStyle(ButtonStyle.Link)
+      .setURL('https://melon.ly/form/7405300452419440640')
+
     const row1 = new ActionRowBuilder().addComponents(regDropdown);
-    const row2 = new ActionRowBuilder().addComponents(mapButton);
+    const row2 = new ActionRowBuilder().addComponents(mapButton, staff, voiceRules);
 
     try {
       await channel.send({
