@@ -3,7 +3,7 @@ const Session = require("../models/sessionSchema");
 const { getServerData } = require("./ErlcApi");
 
 // The channel that MUST always contain the session embed.
-const SESSION_CHANNEL_ID = "1497733145980698636";
+const SESSION_CHANNEL_ID = "1501938271998054451";
 
 let guardInterval = null;  // runs every 1 second – checks if the embed still exists
 let statsInterval = null;  // runs every 60 seconds – refreshes ERLC player counts

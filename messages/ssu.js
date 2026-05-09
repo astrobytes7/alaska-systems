@@ -26,7 +26,7 @@ module.exports = {
         }
 
         try {
-            const sessionChannelId = "1497733145980698636"; // channel id
+            const sessionChannelId = "1501938271998054451"; // channel id
             const sessionChannel = message.guild.channels.cache.get(sessionChannelId);
 
             if (!sessionChannel) {
